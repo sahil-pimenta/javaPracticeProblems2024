@@ -34,14 +34,11 @@ public class LeetCode27LongestRepeatingCharReplacement {
     	return maxLen;
     }
     
-    /*The core logic for why maxCount is always max and not recalculated based on the chars present in current window is:
-    window_length - popular_char_length <= k
-    k is fixed
-    window_length is the answer we want to maximise
-    To maximise window_length, we need to keep max_char as high as possible.
-    This is why we dont decrement the max_char, because it wouldnt increase window_length.
-
-    You can go ahead and update the max variable even for decrements and it will still give you the answer.*/
+    /*Logic for Longest Repeating Character Replacement:
+		- The value of maxCount might become outdated, but it still guarantees correctness.
+		- If maxCount is too high, the condition (r - l + 1 - maxCount > k) might trigger a bit too early, shrinking the window sooner than needed.
+		- That’s okay, because you’re still maintaining valid windows.
+		- You're not trying to find all valid windows, just the longest one — and by only increasing r and adjusting l as needed, you’re checking all possible longest substrings.*/
     
 	public static void main(String args[])
 	{
